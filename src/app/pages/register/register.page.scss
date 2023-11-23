@@ -1,0 +1,58 @@
+ion-content {
+
+}
+
+ion-title {
+  margin: 10% 0 5% 0;
+  font-size: 55px;
+  font-family: Arial, serif;
+}
+
+.btnSocial {
+  font-size: 25px;
+  width: 55px;
+  height: 55px;
+  margin: 20px 10px;
+  border: 2px solid lightgrey;
+  border-radius: 50px;
+}
+
+p {
+  color: #9f9a9a;
+  font-size: 18px;
+}
+
+ion-row {
+  height: 100%
+}
+
+ion-col {
+  margin: 20px 0 20px 0;
+  border: solid lightgrey;
+  width: 45%;
+  box-shadow: grey;
+}
+
+
+.formulario {
+  border: solid lightgrey;
+  margin: 0 10% 0 10%;
+}
+
+.btnSign {
+  --border-radius: 20px;
+  --border: 1px solid #FF4B2B;
+  color: white;
+  --background: #FF4B2B;
+  font-size: 28px;
+  margin-left: 36.7%;
+}
+
+#sign-up {
+  border:  2px solid #FF4B2B;
+  background-color: #fc5252;
+  width: 45%;
+  //background-color: #FF4B2B;
+}
+
+

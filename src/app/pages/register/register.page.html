@@ -1,0 +1,46 @@
+<ion-content class="ion-no-border">
+  <ion-row class="ion-padding">
+    <ion-col size="6" id="sign-in" [class.izquierda]="!intercambiarCards">
+      <ion-title *ngIf="intercambiarCards" class="ion-text-center"><strong>Sign in</strong></ion-title>
+      <ion-toolbar *ngIf="intercambiarCards">
+        <ion-buttons class="ion-justify-content-center">
+          <ion-button class="btnSocial" color="secondary">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </ion-button>
+          <ion-button class="btnSocial" color="danger">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+          <ion-button class="btnSocial" color="primary">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <p *ngIf="intercambiarCards" class="ion-text-center">o usa tu cuenta</p>
+
+      <div *ngIf="intercambiarCards" class="formulario ion-padding">
+        <ion-item>
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input type="text" name="nombre" placeholder="Escribe tu nombre" required="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input type="password" name="password" placeholder="Escribe tu contraseña" required="true"></ion-input>
+        </ion-item>
+      </div>
+      <p *ngIf="intercambiarCards" class="ion-text-center">¿Has olvidado tu contraseña?</p>
+
+      <ion-button *ngIf="intercambiarCards" class="btnSign ion-justify-content-center">SIGN IN</ion-button>
+
+      <ion-button (click)="intercambiarPosition()" class="btnSign ion-justify-content-center">sign up</ion-button>
+
+    </ion-col>
+
+    <ion-col size="6" id="sign-up" [class.derecha]="intercambiarCards">
+
+      <ion-title class="ion-text-center"><strong>Sign up</strong></ion-title>
+      <ion-button (click)="intercambiarPosition()">sign in</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
