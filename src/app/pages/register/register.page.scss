@@ -17,6 +17,7 @@ ion-title {
   border-radius: 50px;
 }
 
+
 p {
   color: #9f9a9a;
   font-size: 18px;
@@ -28,31 +29,74 @@ ion-row {
 
 ion-col {
   margin: 20px 0 20px 0;
-  border: solid lightgrey;
+  border: solid #ef5ca6;
   width: 45%;
   box-shadow: grey;
+  transition: transform 1s ease; //esto es la transición.
 }
-
 
 .formulario {
   border: solid lightgrey;
   margin: 0 10% 0 10%;
 }
 
-.btnSign {
+.btnSignin {
+  border: 2px solid #fcbb14;
+  border-radius: 20px;
   --border-radius: 20px;
-  --border: 1px solid #FF4B2B;
   color: white;
-  --background: #FF4B2B;
+  background: #ef5ca6;
+  --background: #ef5ca6;
   font-size: 28px;
-  margin-left: 36.7%;
+  margin-left: 28%;
 }
 
 #sign-up {
-  border:  2px solid #FF4B2B;
-  background-color: #fc5252;
+  border: 2px solid #ef5ca6;
   width: 45%;
-  //background-color: #FF4B2B;
+  background: linear-gradient(to right, #fcbb14, #ef5ca6);
+}
+
+.intercambiar .derecha {
+  transform: translateX(-100%);
+}
+
+.intercambiar .izquierda {
+  transform: translateX(100%);
+}
+
+.titulo2 {
+  color: white;
+  margin-top: 25%;
+}
+
+.h3 {
+  margin-top: 10%;
+  color: white;
+}
+
+.btnSignup {
+  border: 2px solid white;
+  border-radius: 20px;
+  --border-radius: 20px;
+  color: white;
+  background: #fcbb14;
+  --background: linear-gradient(to right, #ef5ca6, #fcbb14);
+  font-size: 28px;
+  margin-left: 31%;
+  margin-top: 22%;
+}
+
+.btnCrearCuenta{
+  border: 2px solid #fcbb14;
+  border-radius: 20px;
+  --border-radius: 20px;
+  color: white;
+  background: #ef5ca6;
+  --background: #ef5ca6;
+  font-size: 28px;
+  margin-left: 31%;
+  margin-top: 5%;
 }
 
 

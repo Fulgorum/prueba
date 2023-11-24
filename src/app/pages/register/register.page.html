@@ -1,17 +1,17 @@
 <ion-content class="ion-no-border">
-  <ion-row class="ion-padding">
-    <ion-col size="6" id="sign-in" [class.izquierda]="!intercambiarCards">
-      <ion-title *ngIf="intercambiarCards" class="ion-text-center"><strong>Sign in</strong></ion-title>
+  <ion-row class="ion-padding" [class.intercambiar]=!intercambiarCards>
+    <ion-col size="6" id="sign-in" [class.izquierda]="!intercambiarCards" [class.derecha]="intercambiarCards">
+      <ion-title *ngIf="intercambiarCards" class="ion-text-center"><strong>Iniciar sesión</strong></ion-title>
       <ion-toolbar *ngIf="intercambiarCards">
         <ion-buttons class="ion-justify-content-center">
-          <ion-button class="btnSocial" color="secondary">
-            <ion-icon name="logo-facebook"></ion-icon>
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="secondary" name="logo-facebook"></ion-icon>
           </ion-button>
-          <ion-button class="btnSocial" color="danger">
-            <ion-icon name="logo-google"></ion-icon>
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="danger" name="logo-google"></ion-icon>
           </ion-button>
-          <ion-button class="btnSocial" color="primary">
-            <ion-icon name="logo-linkedin"></ion-icon>
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="primary" name="logo-linkedin"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -29,17 +29,63 @@
         </ion-item>
       </div>
       <p *ngIf="intercambiarCards" class="ion-text-center">¿Has olvidado tu contraseña?</p>
+      <ion-button *ngIf="intercambiarCards" class="btnSignin ion-justify-content-center">INICIAR SESIÓN</ion-button>
 
-      <ion-button *ngIf="intercambiarCards" class="btnSign ion-justify-content-center">SIGN IN</ion-button>
+      <ion-title *ngIf="!intercambiarCards" class="ion-text-center"><strong>Crear Cuenta</strong></ion-title>
+      <ion-toolbar *ngIf="!intercambiarCards">
+        <ion-buttons class="ion-justify-content-center">
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="secondary" name="logo-facebook"></ion-icon>
+          </ion-button>
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="danger" name="logo-google"></ion-icon>
+          </ion-button>
+          <ion-button class="btnSocial" color="light">
+            <ion-icon color="primary" name="logo-linkedin"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <p *ngIf="!intercambiarCards" class="ion-text-center">o usa tu correo electrónico para hacer el registro</p>
 
-      <ion-button (click)="intercambiarPosition()" class="btnSign ion-justify-content-center">sign up</ion-button>
+      <div *ngIf="!intercambiarCards" class="formulario ion-padding">
+        <ion-item>
+          <ion-label position="floating">Nombre:</ion-label>
+          <ion-input type="text" name="nombre" placeholder="Escribe tu nombre" required="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email:</ion-label>
+          <ion-input type="email" name="email" placeholder="Escribe tu email" required="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input type="password" name="password" placeholder="Escribe tu contraseña" required="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirmar contraseña:</ion-label>
+          <ion-input type="password" name="password" placeholder="Confirma la contraseña" required="true"></ion-input>
+        </ion-item>
+      </div>
+      <ion-button *ngIf="!intercambiarCards" class="btnCrearCuenta ion-justify-content-center">CREAR CUENTA</ion-button>
 
     </ion-col>
 
-    <ion-col size="6" id="sign-up" [class.derecha]="intercambiarCards">
+    <ion-col size="6" id="sign-up" [class.derecha]="!intercambiarCards" [class.izquierda]="intercambiarCards">
 
-      <ion-title class="ion-text-center"><strong>Sign up</strong></ion-title>
-      <ion-button (click)="intercambiarPosition()">sign in</ion-button>
+      <ion-title *ngIf="intercambiarCards" class="titulo2 ion-text-center"><strong>Hola. Crea una cuenta!!</strong>
+      </ion-title>
+      <h3 *ngIf="intercambiarCards" class="h3 ion-text-center">Introduce tus datos personales y comienza <br> tu viaje
+        con nosotros.</h3>
+      <ion-button *ngIf="intercambiarCards" class="btnSignup" (click)="intercambiarPosition()">DARSE DE ALTA
+      </ion-button>
+
+      <ion-title *ngIf="!intercambiarCards" class="titulo2 ion-text-center"><strong>Hola de nuevo!!</strong>
+      </ion-title>
+      <h3 *ngIf="!intercambiarCards" class="h3 ion-text-center">Ingresa tus datos y sigue disfrutando de <br> tu viaje
+        con nosotros.</h3>
+      <ion-button *ngIf="!intercambiarCards" class="btnSignup" (click)="intercambiarPosition()">INICIAR SESIÓN
+      </ion-button>
+
     </ion-col>
   </ion-row>
 

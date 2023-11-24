@@ -6,13 +6,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  intercambiarCards: boolean = false;
+  intercambiarCards: boolean = true;
+
 
   constructor() {
   }
 
   ngOnInit() {
   }
+
+
 
   intercambiarPosition() {
     this.intercambiarCards = !this.intercambiarCards;
