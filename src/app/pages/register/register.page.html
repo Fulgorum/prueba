@@ -17,21 +17,31 @@
       </ion-toolbar>
       <p *ngIf="intercambiarCards" class="ion-text-center">o usa tu cuenta</p>
 
-      <div *ngIf="intercambiarCards" class="formulario ion-padding">
-        <ion-item>
-          <ion-label position="floating">Nombre:</ion-label>
-          <ion-input type="text" name="nombre" placeholder="Escribe tu nombre" required="true"></ion-input>
-        </ion-item>
+      <form *ngIf="intercambiarCards" class="ion-padding">
+        <ion-list>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Nombre:</ion-label>
+            <ion-input type="text" name="nombre" minlength="3"
+                       required="true" [(ngModel)]="nombre" (input)="validarNombre()"></ion-input>
+            <p class="mensaje-error" *ngIf="mensajeErrorNombre">{{ mensajeErrorNombre }}</p>
 
-        <ion-item>
-          <ion-label position="floating">Contraseña:</ion-label>
-          <ion-input type="password" name="password" placeholder="Escribe tu contraseña" required="true"></ion-input>
-        </ion-item>
-      </div>
+          </ion-item>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Contraseña:</ion-label>
+            <ion-input type="password" name="password" minlength="8" required="true" [(ngModel)]="pass"
+                       (input)="validarPass()"></ion-input>
+            <p class="mensaje-error" *ngIf="mensajeErrorPass">{{ mensajeErrorPass }}</p>
+          </ion-item>
+        </ion-list>
+      </form>
       <p *ngIf="intercambiarCards" class="ion-text-center">¿Has olvidado tu contraseña?</p>
-      <ion-button *ngIf="intercambiarCards" class="btnSignin ion-justify-content-center">INICIAR SESIÓN</ion-button>
+      <!--Se debe convertir en link-->
 
-      <ion-title *ngIf="!intercambiarCards" class="ion-text-center"><strong>Crear Cuenta</strong></ion-title>
+      <ion-button type="submit" *ngIf="intercambiarCards" (click)="guardarNombre()"
+                  class="btnIniciarSesion">INICIAR SESIÓN
+      </ion-button>
+
+      <ion-title *ngIf="!intercambiarCards" class="ion-text-center"><strong>Crear cuenta</strong></ion-title>
       <ion-toolbar *ngIf="!intercambiarCards">
         <ion-buttons class="ion-justify-content-center">
           <ion-button class="btnSocial" color="light">
@@ -47,43 +57,59 @@
       </ion-toolbar>
       <p *ngIf="!intercambiarCards" class="ion-text-center">o usa tu correo electrónico para hacer el registro</p>
 
-      <div *ngIf="!intercambiarCards" class="formulario ion-padding">
-        <ion-item>
-          <ion-label position="floating">Nombre:</ion-label>
-          <ion-input type="text" name="nombre" placeholder="Escribe tu nombre" required="true"></ion-input>
-        </ion-item>
+      <form *ngIf="!intercambiarCards" class="formulario ion-padding">
+        <ion-list>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Nombre:</ion-label>
+            <ion-input type="text" name="nombre" minlength="3" [(ngModel)]="nombre" (input)="validarNombre()"
+                       required="true"></ion-input>
+            <p class="mensaje-error" *ngIf="mensajeErrorNombre">{{ mensajeErrorNombre }}</p>
+          </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Email:</ion-label>
-          <ion-input type="email" name="email" placeholder="Escribe tu email" required="true"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña:</ion-label>
-          <ion-input type="password" name="password" placeholder="Escribe tu contraseña" required="true"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Confirmar contraseña:</ion-label>
-          <ion-input type="password" name="password" placeholder="Confirma la contraseña" required="true"></ion-input>
-        </ion-item>
-      </div>
-      <ion-button *ngIf="!intercambiarCards" class="btnCrearCuenta ion-justify-content-center">CREAR CUENTA</ion-button>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Email:</ion-label>
+            <ion-input type="email" name="email"
+                       pattern="^([a-zA-Z0-9])+@([a-zA-Z0-9])+\.([a-zA-Z]{2,5})$" required="true"></ion-input>
+          </ion-item>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Contraseña:</ion-label>
+            <ion-input type="password" name="password" minlength="8" required="true" [(ngModel)]="pass"
+                       (input)="validarPass()"></ion-input>
+            <p class="mensaje-error" *ngIf="mensajeErrorPass">{{ mensajeErrorPass }}</p>
+
+          </ion-item>
+          <ion-item class="miInput" lines="none">
+            <ion-label position="staked">Repetir contraseña:</ion-label>
+            <ion-input type="password" name="repetirPassword" minlength="8" required="true" [(ngModel)]="repeatPass"
+                       (input)="validarIgualdadPass()"></ion-input>
+            <p class="mensaje-error" *ngIf="mensajeErrorEquals">{{ mensajeErrorEquals }}</p>
+
+          </ion-item>
+        </ion-list>
+      </form>
+      <ion-button type="submit" *ngIf="!intercambiarCards" (click)="guardarNombre()" class="btnCrearCuenta">CREAR
+        CUENTA
+      </ion-button>
 
     </ion-col>
 
     <ion-col size="6" id="sign-up" [class.derecha]="!intercambiarCards" [class.izquierda]="intercambiarCards">
 
-      <ion-title *ngIf="intercambiarCards" class="titulo2 ion-text-center"><strong>Hola. Crea una cuenta!!</strong>
+      <ion-title *ngIf="intercambiarCards" class="titulo2 ion-text-center"><strong>¡¡ Comienza tu viaje !!
+      </strong>
       </ion-title>
-      <h3 *ngIf="intercambiarCards" class="h3 ion-text-center">Introduce tus datos personales y comienza <br> tu viaje
-        con nosotros.</h3>
-      <ion-button *ngIf="intercambiarCards" class="btnSignup" (click)="intercambiarPosition()">DARSE DE ALTA
+      <h3 *ngIf="intercambiarCards" class="h3 ion-text-center">Ingresa tus datos personales para crear tu cuenta <br> y
+        disfruta con nosotros.</h3>
+      <ion-button *ngIf="intercambiarCards" class="btnCol2"
+                  (click)="intercambiarPosition()">DARSE DE ALTA
       </ion-button>
 
-      <ion-title *ngIf="!intercambiarCards" class="titulo2 ion-text-center"><strong>Hola de nuevo!!</strong>
+      <ion-title *ngIf="!intercambiarCards" class="titulo2 ion-text-center"><strong>¡¡ Bienvenido de nuevo !!</strong>
       </ion-title>
-      <h3 *ngIf="!intercambiarCards" class="h3 ion-text-center">Ingresa tus datos y sigue disfrutando de <br> tu viaje
-        con nosotros.</h3>
-      <ion-button *ngIf="!intercambiarCards" class="btnSignup" (click)="intercambiarPosition()">INICIAR SESIÓN
+      <h3 *ngIf="!intercambiarCards" class="h3 ion-text-center">Para mantenerse conectado con nosotros por favor<br>
+        ingresa con tu información personal.</h3>
+      <ion-button *ngIf="!intercambiarCards" class="btnCol2"
+                  (click)="intercambiarPosition()">INICIAR SESIÓN
       </ion-button>
 
     </ion-col>

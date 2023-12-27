@@ -1,11 +1,7 @@
-ion-content {
-
-}
-
 ion-title {
   margin: 10% 0 5% 0;
-  font-size: 55px;
-  font-family: Arial, serif;
+  font-size: 50px;
+  font-family: Arial, sans-serif;
 }
 
 .btnSocial {
@@ -16,7 +12,6 @@ ion-title {
   border: 2px solid lightgrey;
   border-radius: 50px;
 }
-
 
 p {
   color: #9f9a9a;
@@ -35,12 +30,17 @@ ion-col {
   transition: transform 1s ease; //esto es la transición.
 }
 
-.formulario {
-  border: solid lightgrey;
+form {
   margin: 0 10% 0 10%;
 }
 
-.btnSignin {
+.miInput {
+  border: solid lightgrey;
+  margin: 5px;
+}
+
+
+.btnIniciarSesion {
   border: 2px solid #fcbb14;
   border-radius: 20px;
   --border-radius: 20px;
@@ -75,7 +75,7 @@ ion-col {
   color: white;
 }
 
-.btnSignup {
+.btnCol2 {
   border: 2px solid white;
   border-radius: 20px;
   --border-radius: 20px;
@@ -83,11 +83,11 @@ ion-col {
   background: #fcbb14;
   --background: linear-gradient(to right, #ef5ca6, #fcbb14);
   font-size: 28px;
-  margin-left: 31%;
+  margin-left: 30%;
   margin-top: 22%;
 }
 
-.btnCrearCuenta{
+.btnCrearCuenta {
   border: 2px solid #fcbb14;
   border-radius: 20px;
   --border-radius: 20px;
@@ -98,5 +98,16 @@ ion-col {
   margin-left: 31%;
   margin-top: 5%;
 }
+ion-item {
+  position: relative;
+}
+
+.mensaje-error {
+  font-size: 14px;
+  color: red;
+  bottom: 5px;
+  left: 10px;
+}
+
 
 
