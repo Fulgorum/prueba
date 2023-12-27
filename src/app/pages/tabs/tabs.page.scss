@@ -1,0 +1,15 @@
+ion-tab-bar {
+  border: solid 4px #fcbb14;
+  border-bottom: solid 4px #ef5ca6;
+  --background: linear-gradient(to bottom, #ef5ca6, #fcbb14);
+  background: linear-gradient(to bottom, #ef5ca6, #fcbb14);
+}
+
+ion-icon {
+  color: white;
+}
+
+ion-tab-button {
+  --color-selected: transparent;
+}
+
